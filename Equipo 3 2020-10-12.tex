@@ -51,8 +51,8 @@
 \DeclareMathOperator{\Jac}{Jac}
 
 %--------------------------------------------------------------------------
-\title{Actividades sesi\'on 5 de octubre\\
-An\'alisis de Algoritmos III\\
+\title{Actividades sesi\'on 12 de octubre\\
+An\'alisis de Algoritmos IV\\
 Maestr\'ia en Ciencias de la Computaci\'on\\ 
 Oto\~{n}o 2020\\
 BUAP
@@ -72,288 +72,114 @@ BUAP
 %\abstract{Analisis de algoritmos}
 
 \section{Ejercicios}
-Resuelva las siguientes recurrencias exactamente con y sin manipulaci\'on algebraica:\\
-\begin{enumerate}[1.]
+Resuelva las siguientes recurrencias exactamente,perimero mediante cambio de variable,
+luego verifique sus respuestas empleando el resultado del ejemplo 4.\\
+
+%inicia ejercicio 1.1
+
+\begin{enumerate}[1]
 \item  $$t_n = \left \{ 
 \begin{matrix} 
-n + 1 & \mbox{si n = }0\mbox{ o n = 1}\\ 
-3t_{n-1}-2t_{n-2}+3 \cdot 2^{n-2} & \mbox{en}\mbox{ otro caso}\\
+1 & \mbox{si n = }1\\ 
+2T(n/2)+1 & \mbox{en}\mbox{ otro caso}\\
 \end{matrix}
 \right. $$\\
 
-\begin{center}
-\textbf{Con manipulaci\'on algebraica}\\
-\end{center}
-
-Reescribimos la recurrencia: \\
-$$ t_{n}-3t_{n-1}-2t_{n-2} = 3 \cdot 2^{n-2} $$\\
-La cual es de la forma de la Ecuaci\'on (1) con $b=2$ y $p(n)=3$ un polinomio de grado 0.\\
-Reemplazamos n en la recurrencia por $n-1$ y multiplicar por $-2$\\
-$$ -2t_{n-1} + 6t_{n-2} - 4t_{n-3} = - 3 \cdot 2^{n-2}	$$
-As\'i obtenemos: \\
-$$ t_{n} - 5t_{n-1} + 8t_{n-2} - 4t_{n-3} = 0$$
-Su polinomio caracterist\'ico es:
-$$ x^{3} - 5x^{2} + 8x - 4 = (x-1)(x-2)^{2}$$
-Cuyas raices son $ r_{2} = 2 $ y $r_{1} = 2$ (ra\'ices m\'ultiples) y $r_{1}=1$\\
-
-$$t_n= C_{1} + C_{2}^{n} + C_{3}n2^{n}$$
-Si $C_{3}>0$ entonces $t_{n}$ $\epsilon$ $O(n2^{n})$\\
-\clearpage
 
 \begin{center}
-\textbf{Sin manipulaci\'on algebraica}\\
+Reemplazamos $n$ por $2^{i}$: \\
+$t_{i}= T(2^{i})$\\
+$n/2$ se convierte en :\\
+$\frac{2^{i}}{2} =2^{i-1} $\\
+Entonces:\\
+$t_{i}= T(2^{i})= 2T(2^{i-1})+1$\\
+\hspace{1.6cm}$=2t_{i-1}+1 $\\
+Se reescribe como:\\
+$t_{i}- 2t_{i-1} = 1$\\
+Que es la forma de una recurrencia no homog\'enea\\
+Su polinomio caracter\'istico es:\\
+$(x-2)(x-1)$\\
+As\'i todas las coluciones para $t_{i}$ son de la forma:\\
+$t_{i} = c_{1}(2^{i}) + c_{2}$\\
+Ahora regresamos a la ecuaci\'on original\\
+usamos el hecho de que $T(2^{i})=t_{i}$, As\'i $T(n) = tlgn$ \\
+$T(n)= c_{1}2^{lgn}+ c2$ $=$ $c_{1}n + c_{2}$ $(1)$\\
+Lo cual es suficiente para concluir que :\\
+$T(n) \in O(n|n$ es potencia de 2)\\
+Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
+estrictamente positivo.\\
+Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
+$1 = T(n)-2T(n/2)$\\
+\hspace{1.6cm}$= (c_{1}n+c2)- 2(c_{1}\frac{n}{2} + c_{2})$\\
+$c_{2}= -1$\\
+No obtuvimos el valor de $c_{1}$ pero estamos en condiciones de afirmar que 
+debe ser estrictamente positiva, de lo contrario la ecuaci\'on $(1)$ indicar\'ia falsamente
+que $T(n)$ es negativa.\\
+
+Entonces queda establecido que:\\
+$T(n) \in \Theta(n|n$ es potencia de 2)\\
+
+Comprobaci\'on con teorema Maestro:
+$l = 2$, $b = 2$,$k = 0$\\
+$l > 2^{0} = 1$\\
+Entonces $T(n) \in \Theta(n^{\log_{2}(2)})$\\
+$T(n) \in \Theta(n|n$ es potencia de 2)
+
 \end{center}
-
-Reescribimos la recurrencia: \\
-$$ t_{n}-3t_{n-1}-2t_{n-2} = 3 \cdot 2^{n-2} $$\\
-La cual es de la forma de la Ecuaci\'on (1) con $b=2$, $p(n)=3$ y $d=0$ un polinomio de grado 0.\\
-As\'i su polinomio caracter\'istico es:\\
-$$ (x-2)^{2}(x-1) $$
-Cuyas raices son $ r_{2} = 2 $ y $r_{1} = 2$ (ra\'ices m\'ultiples) y $r_{1}=1$\\
-$$t_n= C_{1} + C_{2}^{n} + C_{3}n2^{n}$$
-
-Si sustituimos la Ecuaci\'on en la recurrencia original, obtenemos:\\
-$$3 \cdot 2^{n-2} = (C_{1}+C_{2}^{n}+C_{3}n2^{n}) - 3(C_{1}+C_{2}^{n-1}+C_{3}(n-1)2^{n-1})$$
-$$3 \cdot 2^{n-2} = \frac{C_{3}2^{n}}{2}$$
-$$3 = \frac{C_{3}2^{n}}{2} \cdot \frac{1}{2^{n-2}}$$
-$$3 = 2C_{3}$$ 
-Por lo tanto\\
-$$C_{3}=\frac{3}{2}$$\\
-$C_{3}>0$ entonces $t_{n}$ $\epsilon$ $O(n2^{n})$\\
 \clearpage
+%termina ejercicio 1.1
 
-
-
-%Para el 2do ejercicio
-\item  $$T(n)= \left \{ 
+%inicio del ejercicio 1.2
+\item  $$t_n = \left \{ 
 \begin{matrix} 
-a & \mbox{si n = }0\mbox{ o n = 1}\\ 
-T(n-1)+T(n-2)+C & \mbox{en}\mbox{ otro caso}\\
+1 & \mbox{si n = }1\\ 
+4T(n/2)+n & \mbox{en}\mbox{ otro caso}\\
 \end{matrix}
 \right. $$\\
 
-\begin{center}
-\textbf{Con manipulaci\'on algebraica}\\
-\end{center}
-
-Reescribimos la recurrencia: \\
-$$ T(n)-T(n-1)-T(n-2)-C $$\\
-$$ T(n)-T(n-1)-T(n-2)=C $$\\
-La cual es de la forma de la Ecuaci\'on (1) con $b=1$ y $p(n)=1$ un polinomio de grado 0.\\
-Formando la nueva ecuaci\'on
-$$ T(n)-T(n-1)-T(n-2)=C $$\\
-Multiplicando por $-1$ y remplazando $n$ por $n-1$\\
-$$ -T(n-1)+T(n-2)+T(n-3)=-C $$\\
-As\'i obtenemos:\\
-$ T(n)-T(n-1)-T(n-2)~~~~~~~~~~~~~~~=C $\\
-$ ~~~~~~-T(n-1)+T(n-2)+T(n-3)=-C$\\
-\rule{80mm}{0.1mm}\\
-Sumando estas dos ecuaciones tenemos: \\
-$$ T(n)-2T(n-1)+T(n-3)=0 $$\\
-As\'i su polinomio caracter\'istico es:\\
-$$ x^{3}-2x^{2}+1=0 $$
-Cuyas raices son $ r_{1} = \frac{1+\sqrt{5}}{2} $, $ r_{2} = \frac{1-\sqrt{5}}{2}$, $r_{3}=1$ y $\theta=\frac{1+\sqrt{5}}{2}$\\
-As\'i: \\
-$$T(n) = C_{1}(\frac{1+\sqrt{5}}{2})^{n} + C_{2}(\frac{1-\sqrt{5}}{2})^{n} + C_{3} ~~~~~~~~(2)$$
-\clearpage
 
 \begin{center}
-\textbf{Sin manipulaci\'on algebraica}\\
+Reemplazamos $n$ por $2^{i}$: \\
+$t_{i}= T(2^{i})$\\
+$n/2$ se convierte en :\\
+$\frac{2^{i}}{2} =2^{i-1} $\\
+Entonces:\\
+$t_{i}= T(2^{i})= 4T(2^{i-1})+ 2^{i}$\\
+\hspace{1.6cm}$=4t_{i-1}+2^{i} $\\
+Se reescribe como:\\
+$t_{i}- 4t_{i-1} = 2^{i}$\\
+Que es la forma de una recurrencia no homog\'enea\\
+Su polinomio caracter\'istico es:\\
+$(x-4)(x-2)$\\
+As\'i todas las coluciones para $t_{i}$ son de la forma:\\
+$t_{i} = c_{1}(4^{i}) + c_{2}(2^{i})$\\
+Ahora regresamos a la ecuaci\'on original\\
+usamos el hecho de que $T(2^{i})=t_{i}$, As\'i $T(n) = tlgn$ \\
+$T(n)= c_{1}4^{lgn}+ c_{2}2^{lgn}$ $=$ $c_{1}n^{2} + c_{2}n$ $(1)$\\
+Lo cual es suficiente para concluir que :\\
+$T(n) \in O(n^{2}|n$ es potencia de 2)\\
+Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
+estrictamente positivo.\\
+Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
+$n = T(n)-4T(n/2)$\\
+\hspace{1.6cm}$= (c_{1}n^{lg4} + c_{2}n)- 4(c_{1}(\frac{n}{2})^{lg4} + c_{2}(\frac{n}{2}))$\\
+$c_{2}= -1$\\
+No obtuvimos el valor de $c_{1}$ pero estamos en condiciones de afirmar que 
+debe ser estrictamente positiva, de lo contrario la ecuaci\'on $(1)$ indicar\'ia falsamente
+que $T(n)$ es negativa.\\
+
+Entonces queda establecido que:\\
+$T(n) \in \Theta(n^{2}|n$ es potencia de 2)\\
+
+Comprobaci\'on con teorema Maestro:
+$l = 4$, $b = 2$,$k = 0$\\
+$l > 2^{0} = 1$\\
+Entonces $T(n) \in \Theta(n^{\log_{2}(4)})$\\
+$T(n) \in \Theta(n^{2}|n$ es potencia de 2)
+
 \end{center}
-
-Sustituyendo (2) en la recurrencia original $T(n)-T(n-1)-T(n-2)=C$\\
-$$T(n)=C_{1}\theta^{n} + C_{2}(\frac{1-\sqrt{5}}{2})^{n} + C_{3}$$
-$$C=(C_{1}\theta^{n} + C_{2}(\frac{1-\sqrt{5}}{2})^{n} + C_{3})-(C_{1}\theta^{n-1} + C_{2}(\frac{1-\sqrt{5}}{2})^{n-1} + C_{3})-(C_{1}\theta^{n-2} + C_{2}(\frac{1-\sqrt{5}}{2})^{n-2} + C_{3})$$
-$$C=C_{1}(\theta^{n}-\theta^{n-1}-\theta^{n-2})+C_{2}((\frac{1-\sqrt{5}}{2})^{n}-(\frac{1-\sqrt{5}}{2})^{n-1}-(\frac{1-\sqrt{5}}{2})^{n-2})+C_{3}(1-1-1)$$
-\rule{130mm}{0.1mm}\\
-$$C_{1}+C_{2}+C_{3}=0$$
-$$C_{1}\theta + C_{2}(\frac{1-\sqrt{5}}{2}) + C_{3}=1$$
-$$C_{1}\theta^{2} + C_{2}(\frac{1-\sqrt{5}}{2})^{2} + C_{3}=1$$
- $\theta=\frac{1+\sqrt{5}}{2}$
- 
-$$C_{1}=\frac{3\sqrt{5}}{10}+\frac{1}{2}$$
-$$C_{2}=-\frac{3\sqrt{5}}{10}+\frac{1}{2}$$
-$$C_{3} = 1 $$
 \clearpage
-
-%Para el 3er ejercicio
-\item  $$T(n)= \left \{ 
-\begin{matrix} 
-a & \mbox{si n = }0\mbox{ o n = 1}\\ 
-T(n-1)+T(n-2)+Cn & \mbox{en}\mbox{ otro caso}\\
-\end{matrix}
-\right. $$\\
-
-\begin{center}
-\textbf{Con manipulaci\'on algebraica}\\
-\end{center}
-
-Reescribimos la recurrencia: \\
-$$ T(n)-T(n-1)-T(n-2)-Cn $$\\
-Formando la nueva ecuaci\'on
-$$ T(n)-T(n-1)-T(n-2)=Cn $$\\
-Multiplicando por $-1$ y remplazando $n$ por $n-1$\\
-
-$$ T(n)-T(n-1)-T(n-2)~~~~~~~~~~~~~~~~~~=Cn $$\\
-$$ ~~~~~~~~~~~~~~-T(n-1)+T(n-2)+T(n-3)=-Cn + C $$\\
-Sumando las ecuaciones tenemos:\\
-$$ T(n)-2T(n-1)+T(n-3)= -C $$\\
-Multiplicando por $-1$ y remplazando $n$ por $n-1$ en la nueva ecuaci\'on\\
-$$ -T(n-1)+2T(n-2)+T(n-4)=-C $$\\
-Sumando las ecuaciones tenemos:\\
-$$ T(n)-3T(n-1)+2T(n-2)+T(n-3)-T(n-4)= 0 $$\\
-As\'i su polinomio caracter\'istico es:\\
-$$ x^{4}-3x^{3}+2x^{2}+x-1= (x-1)^{2}(x^{2}-x-1)$$
-Cuyas raices son $r_{1}=1$, $r_{2}=1$ de multiplicidad 2, $r_{3}=\frac{1+\sqrt{5}}{2}$ y $r_{4}=\frac{1-\sqrt{5}}{2}$\\
-As\'i: \\
-$$T(n)= C_{1}+C_{2}+C_{3}\theta^{n}+C_{4}(\frac{1-\sqrt{5}}{2})^n$$
-Sustituyendo en la recurrencia original\\
-$$C_{1}+nC_{2}+C_{3}\theta^{n}+C_{4}(\frac{1-\sqrt{5}}{2})^n - C_{1}-(n-1)C_{2}-C_{3}\theta^{n-1}-C_{4}(\frac{1-\sqrt{5}}{2})^{n-1}-$$
-$$C_{1}-(n-2)C_{2}-C_{3}\theta^{n-2}-C_{4}(\frac{1-\sqrt{5}}{2})^n$$
-\clearpage
-
-\begin{center}
-\textbf{Sin manipulaci\'on algebraica}\\
-\end{center}
-
-$$T(n)-T(n-1)-T(n-2)=Cn$$\\
-La cual es de la forma de la Ecuaci\'on (1) con $b=1$, $p(n)=n$ y $d=1$ un polinomio de grado 1.\\
-As\'i su polinomio caracter\'istico es:\\
-$$(x^{2}-x-1)(x-1)^{2}$$
-Cuyas raices son $r_{1}=\frac{1+\sqrt{5}}{2}$ y $r_{2}=\frac{1-\sqrt{5}}{2}$ $r_{3}=1$, $r_{4}=1$ de multiplicidad 2, \\
-Entonces \\
-$$T(n)= C_{1}\Theta^{n}+C_{2}(\frac{1-\sqrt{5}}{2}^{n})+C_{3}+C_{4}n$$
-\clearpage
-
-
-%Para el 4to ejercicio
-\item  $a_{n}=a_{n-1}+n+2,~~~~~a_{0}=0$
-
-\begin{center}
-\textbf{Con manipulaci\'on algebraica}\\
-\end{center}
-
-Reescribimos la recurrencia: \\
-$$a_{n}-a_{n-1}=n+2$$
-Multiplicando por $-1$ y remplazando $n$ por $n-1$\\
-$$-a_{n-1}+a_{n-2}=-n-1$$
-
-Sumando las ecuaciones tenemos:\\
-$$a_{n}-a_{n-1}~~~~~~~~~~~=n+2$$
-+
-$$~~~~~~~-a_{n-1}+a_{n-2}=-n-1$$
-\rule{130mm}{0.1mm}\\
-$$a_{n}-2a_{n-1}+a_{n-2}=1$$
-Multiplicando por $-1$ y remplazando $n$ por $n-1$ en la nueva ecuaci\'on\\
-$$-a_{n-1}+2a_{n-2}-a_{n-3}=-1$$
-Sumando las ecuaciones anteriotres tenemos:\\
-$$a_{n}-2a_{n-1}+a_{n-2}~~~~~~~~~~=1$$
-+
-$$~~~~~~-a_{n-1}+2a_{n-2}-a_{n-3}=-1$$
-\rule{130mm}{0.1mm}\\
-$$a_{n}-3a_{n-1}+3a_{n-2}-a_{n-3}=0$$
-As\'i su polinomio caracter\'istico es:\\
-$$ x^{3}-3x^{2}+3x-1= (x-1)^{3}$$
-Cuya ra\'iz es $r_{1}=1$ de multiplicidad 3\\
-Por lo tanto todas las soluciones son de la forma:\\
-$$a_{n}=C_{1}+C_{2}n+C_{3}n^{2}$$
-\clearpage
-La soluci\'on general se encuentra resolviendo el siguiente sistema de ecuaciones lineales.\\
-$$C_{1}=0~~~~~~~~~~~~~~~~~~~~~n=0$$
-$$C_{1}+C_{2}+C_{3}=1~~~~~~~n=1$$
-$$C_{1}+2C_{2}+4C_{3}=2~~~~~n=2$$
-Donde obtenemos que:\\
-$$C_{1}=0, C_{2}=1,  C_{3}=0$$
-\clearpage
-
-
-
-\begin{center}
-\textbf{Sin manipulaci\'on algebraica}\\
-\end{center}
-
-Reescribimos la recurrencia: \\
-$$a_{n}-a_{n-1}=n+2$$
-En este caso, $b=1$ y $p(n)=n$\\
-As\'i su polinomio caracter\'istico es:\\
-$$(x-1)^{3}(x-2)$$
-Cuyas raices son $r_{1}=2$ y $r_{2}=1$ de multiplicidad 3 \\
-Por lo tanto todas las soluciones son de la forma:\\
-$$a_{n}=C_{1}2^{n}+C_{2}1^{n}+C_{3}n1^{n}+C_{4}n^{2}1^{n} $$
-$$a_{n}=C_{1}2^{n}+C_{2}+C_{3}n+C_{4}n^{2}$$
-Sustituyendo en la recurrencia original\\
-$$n+2= a_{n}-a_{n-1}$$
-$$n+2=(C_{1}2^{n}+C_{2}+C_{3}n+C_{4}n^{2})-(C_{1}2^{n-1}+C_{2}+C_{3}(n-1)+C_{4}(n^{2}-2_{n}+1))$$
-$$n+2=C_{1}(2^{n} - 2^{n-1})+C_{3}(n-n+1)+C_{4}(n^{2}-2n+1) $$
-$$n+2=C_{1}2^{n-2}+C_{3}+C_{4}(2^{n})-C_{4}$$
-\clearpage
-
-
-
-%Para el 5to ejercicio
-\item  $a_{n}=a_{n-1}+7n,~~~~~a_{0}=0$
-
-\begin{center}
-\textbf{Con manipulaci\'on algebraica}\\
-\end{center}
-
-Reescribimos la recurrencia: \\
-$$a_{n}-a_{n-1}=7n$$
-Multiplicando por $-1$ y remplazando $n$ por $n-1$\\
-$$-a_{n-1}+a_{n-2}=7n+7$$
-
-Sumando las ecuaciones tenemos:\\
-$$a_{n}-a_{n-1}~~~~~~~~~~=7n$$
-+
-$$~~~~~~~-a_{n-1}+a_{n-2}=7n+7$$
-\rule{130mm}{0.1mm}\\
-$$a_{n}-2a_{n-1}+a_{n-2}=7$$
-Multiplicando por $-1$ y remplazando $n$ por $n-1$ en la nueva ecuaci\'on\\
-$$-a_{n-1}+3a_{n-2}-a_{n-3}=-7$$
-Sumando las ecuaciones anteriotres tenemos:\\
-$$a_{n}-2a_{n-1}+a_{n-2}~~~~~~~~~~=7$$
-+
-$$~~~~~~-a_{n-1}+3a_{n-2}-a_{n-3}=-7$$
-\rule{130mm}{0.1mm}\\
-$$a_{n}-3a_{n-1}+3a_{n-2}-a_{n-3}=0$$
-As\'i su polinomio caracter\'istico es:\\
-$$ x^{3}-3x^{2}+3x-1= (x-1)^{3}$$
-Cuya ra\'iz es $r_{1}=1$ de multiplicidad 3\\
-Por lo tanto todas las soluciones son de la forma:\\
-$$a_{n}=C_{1}+C_{2}n+C_{3}n^{2}$$
-\clearpage
-La soluci\'on general se encuentra resolviendo el siguiente sistema de ecuaciones lineales.\\
-$$C_{1}=0~~~~~~~~~~~~~~~~~~~~~n=0$$
-$$C_{1}+C_{2}+C_{3}=1~~~~~~~n=1$$
-$$C_{1}+2C_{2}+4C_{3}=2~~~~~n=2$$
-Donde obtenemos que:\\
-$$C_{1}=0, C_{2}=1,  C_{3}=0$$
-
-\clearpage
-\begin{center}
-\textbf{Sin manipulaci\'on algebraica}\\
-\end{center}
-
-Reescribimos la recurrencia: \\
-$$a_{n}-a_{n-1}=7$$
-En este caso, $b=7$ , $p(n)=n$ y d=1\\
-As\'i su polinomio caracter\'istico es:\\
-$$(x-1)(x-7)^{2}$$
-Cuyas raices son $r_{1}=1$ , $r_{2}=7$ y $r_{3}=7$ de multiplicidad 2 \\
-Por lo tanto todas las soluciones son de la forma:\\
-$$a_{n}=C_{1}+C_{2}7^{n}+C_{3}n7^{n} $$
-La soluci\'on general se encuentra resolviendo el siguiente sistema de ecuaciones lineales.\\
-$$C_{1}+C_{2}+0=0~~~~~~~~~~~~~n=0$$
-$$C_{1}+7C_{2}+7C_{3}=1~~~~~~~~n=1$$
-$$C_{1}+49C_{2}+98C_{3}=2~~~~~n=2$$
-Donde obtenemos que:\\
-$$C_{1}=-\frac{1}{3}, C_{2}=\frac{1}{3},  C_{3}=-\frac{1}{7}$$
-Por lo tanto\\
-$$a_{n}=-\frac{1}{3}+(\frac{1}{3})7^{n}+n7^{n-1}$$
-\clearpage
-
-
-
+%fin ejercicio 1.2
 
 \end{enumerate}
 
