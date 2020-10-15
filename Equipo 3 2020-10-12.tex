@@ -89,36 +89,43 @@ luego verifique sus respuestas empleando el resultado del ejemplo 4.\\
 \begin{center}
 Reemplazamos $n$ por $2^{i}$: \\
 $t_{i}= T(2^{i})$\\
+\vspace{.5cm}
 $n/2$ se convierte en :\\
 $\frac{2^{i}}{2} =2^{i-1} $\\
+\vspace{.5cm}
 Entonces:\\
 $t_{i}= T(2^{i})= 2T(2^{i-1})+1$\\
 \hspace{1.6cm}$=2t_{i-1}+1 $\\
+\vspace{.5cm}
 Se reescribe como:\\
 $t_{i}- 2t_{i-1} = 1$\\
+\vspace{.5cm}
 Que es la forma de una recurrencia no homog\'enea\\
 Su polinomio caracter\'istico es:\\
 $(x-2)(x-1)$\\
+\vspace{.5cm}
 As\'i todas las coluciones para $t_{i}$ son de la forma:\\
 $t_{i} = c_{1}(2^{i}) + c_{2}$\\
+\vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
 usamos el hecho de que $T(2^{i})=t_{i}$, As\'i $T(n) = tlgn$ \\
 $T(n)= c_{1}2^{lgn}+ c2$ $=$ $c_{1}n + c_{2}$ $(1)$\\
+\vspace{.5cm}
 Lo cual es suficiente para concluir que :\\
 $T(n) \in O(n|n$ es potencia de 2)\\
 Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
 estrictamente positivo.\\
+\vspace{.5cm}
 Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
 $1 = T(n)-2T(n/2)$\\
 \hspace{1.6cm}$= (c_{1}n+c2)- 2(c_{1}\frac{n}{2} + c_{2})$\\
 $c_{2}= -1$\\
 No obtuvimos el valor de $c_{1}$ pero estamos en condiciones de afirmar que 
-debe ser estrictamente positiva, de lo contrario la ecuaci\'on $(1)$ indicar\'ia falsamente
-que $T(n)$ es negativa.\\
-
+debe ser estrictamente positiva, de lo contrario la ecuaci\'on $(1)$ indicar\'ia falsamente que $T(n)$ es negativa.\\
 Entonces queda establecido que:\\
 $T(n) \in \Theta(n|n$ es potencia de 2)\\
 
+\vspace{.5cm}
 Comprobaci\'on con teorema Maestro:
 $l = 2$, $b = 2$,$k = 0$\\
 $l > 2^{0} = 1$\\
@@ -141,23 +148,31 @@ $T(n) \in \Theta(n|n$ es potencia de 2)
 \begin{center}
 Reemplazamos $n$ por $2^{i}$: \\
 $t_{i}= T(2^{i})$\\
+\vspace{.5cm}
 $n/2$ se convierte en :\\
 $\frac{2^{i}}{2} =2^{i-1} $\\
+\vspace{.5cm}
 Entonces:\\
 $t_{i}= T(2^{i})= 4T(2^{i-1})+ 2^{i}$\\
 \hspace{1.6cm}$=4t_{i-1}+2^{i} $\\
+\vspace{.5cm}
 Se reescribe como:\\
 $t_{i}- 4t_{i-1} = 2^{i}$\\
 Que es la forma de una recurrencia no homog\'enea\\
+\vspace{.5cm}
 Su polinomio caracter\'istico es:\\
 $(x-4)(x-2)$\\
+\vspace{.5cm}
 As\'i todas las coluciones para $t_{i}$ son de la forma:\\
 $t_{i} = c_{1}(4^{i}) + c_{2}(2^{i})$\\
+\vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
 usamos el hecho de que $T(2^{i})=t_{i}$, As\'i $T(n) = tlgn$ \\
 $T(n)= c_{1}4^{lgn}+ c_{2}2^{lgn}$ $=$ $c_{1}n^{2} + c_{2}n$ $(1)$\\
+\vspace{.5cm}
 Lo cual es suficiente para concluir que :\\
 $T(n) \in O(n^{2}|n$ es potencia de 2)\\
+\vspace{.5cm}
 Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
 estrictamente positivo.\\
 Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
@@ -170,7 +185,7 @@ que $T(n)$ es negativa.\\
 
 Entonces queda establecido que:\\
 $T(n) \in \Theta(n^{2}|n$ es potencia de 2)\\
-
+\vspace{.5cm}
 Comprobaci\'on con teorema Maestro:
 $l = 4$, $b = 2$,$k = 0$\\
 $l > 2^{0} = 1$\\
