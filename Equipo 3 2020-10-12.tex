@@ -196,6 +196,119 @@ $T(n) \in \Theta(n^{2}|n$ es potencia de 2)
 \clearpage
 %fin ejercicio 1.2
 
+
+%inicio del ejercicio 1.3
+\item  $$t_n = \left \{ 
+\begin{matrix} 
+1 & \mbox{si n = }1\\ 
+2T(n/2)+ lgn & \mbox{en}\mbox{ otro caso}\\
+\end{matrix}
+\right. $$\\
+
+
+\begin{center}
+Reemplazamos $n$ por $2^{i}$: \\
+$t_{i}= T(2^{i})$\\
+\vspace{.5cm}
+$n/2$ se convierte en :\\
+$\frac{2^{i}}{2} =2^{i-1} $\\
+\vspace{.5cm}
+Entonces:\\
+$t_{i}= T(2^{i})=2T(2^{i-1})+ lg(2^{i})$\\
+\hspace{1.6cm}$=2t_{i-1}+ i lg2 $\\
+\hspace{1.6cm}$=2t_{i-1}+ i $\\
+\vspace{.5cm}
+Se reescribe como:\\
+$t_{i}- 2t_{i-1} = i $\\
+\vspace{.5cm}
+Su polinomio caracter\'istico es:\\
+$(x-2)(x-1)$\\
+\vspace{.5cm}
+As\'i todas las coluciones para $t_{i}$ son de la forma:\\
+$t_{i} = c_{1} 2^i + c_{2}  + c_3  i $\\
+\vspace{.5cm}
+Ahora regresamos a la ecuaci\'on original\\
+$T(n)= c_{1}n + c_{2} $\\
+\vspace{.5cm}
+Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
+estrictamente positivo.\\
+Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
+$lgn = T(n)-2T(n/2)$\\
+\hspace{1.6cm}$= (c_{1}n + c_{2})- 2(c_{1}(\frac{n}{2}) + c_{2})$\\
+$c_{2}= - log n$\\
+No obtuvimos el valor de $c_{1}$ pero estamos en condiciones de afirmar que 
+debe ser estrictamente positiva
+Por lo tanto :\\
+$T(n) \in O(n | n$ es potencia de 2)\\
+\vspace{.5cm}
+Comprobaci\'on con teorema Maestro:
+$l = 2$, $b = 2$,$k = 0$\\
+$l > b^{k}$\\
+Porque: $2 > 2^{0}$\\
+Por lo tanto:\\
+$T(n) \in \Theta(n^{\log_{2}(2)})$\\
+$T(n) \in \Theta(n|n$ es potencia de 2)
+
+\end{center}
+\clearpage
+%fin ejercicio 1.3
+
+
+%inicio del ejercicio 1.4
+\item  $$t_n = \left \{ 
+\begin{matrix} 
+1 & \mbox{si n = }1\\ 
+5T(n/2)+ (n lgn)^2 & \mbox{en}\mbox{ otro caso}\\
+\end{matrix}
+\right. $$\\
+
+
+\begin{center}
+Reemplazamos $n$ por $2^{i}$: \\
+$t_{i}= T(2^{i})$\\
+\vspace{.5cm}
+$n/2$ se convierte en :\\
+$\frac{2^{i}}{2} =2^{i-1} $\\
+\vspace{.5cm}
+Entonces:\\
+$t_{i}= T(2^{i})=5T(2^{i-1})+(2^{i} lg(2^{i}))^2$\\
+\hspace{1.6cm}$= 5T(2^{i-1})+(2^{i} i)^2$\\
+\vspace{.5cm}
+Se reescribe como:\\
+$t_{i}- 5t_{i-1} = i^2 4^i $\\
+\vspace{.5cm}
+Su polinomio caracter\'istico es:\\
+$(x-5)(x-4)$\\
+\vspace{.5cm}
+As\'i todas las coluciones para $t_{i}$ son de la forma:\\
+$t_{i} = c_{1} 5^i + c_{2}  4^i $\\
+\vspace{.5cm}
+Ahora regresamos a la ecuaci\'on original\\
+$T(n)= c_{1}n^{lg5} + c_{2} n^{lg4} $\\
+\vspace{.5cm}
+Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
+estrictamente positivo.\\
+Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
+$(nlgn)^2 = T(n)-5T(n/2)$\\
+\hspace{1.6cm}$= (c_{1}n^{lg5} + c_{2}n^{lg4})- 2(c_{1}(\frac{n}{2})^{lg5} + c_{2} (\frac{n}{2})^{lg4} )$\\
+$c_{2}n^{lg4} = - (n log n)^2 / 4$\\
+Como $ c_{2}$ es negativa estamos en condiciones de afirmar que $c_{1}$
+debe ser estrictamente positiva
+Por lo tanto :\\
+$T(n) \in O(n^{log5} | n$ es potencia de 2)\\
+\vspace{.5cm}
+Comprobaci\'on con teorema Maestro:
+$l = 5$, $b = 2$,$k = 0$\\
+$l > b^{k}$\\
+Porque: $5 > 2^{0}$\\
+Por lo tanto:\\
+$T(n) \in \Theta(n^{\log_{2}(5)})$\\
+$T(n) \in \Theta(n^{\log_{2}(5)} |n$ es potencia de 2)
+
+\end{center}
+\clearpage
+%fin ejercicio 1.4
+
 \end{enumerate}
 
 
