@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.11)  15 OCT 2020 22:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.8.11)  15 OCT 2020 23:57
 entering extended mode
 **"./Equipo 3 2020-10-12.tex"
 ("Equipo 3 2020-10-12.tex"
@@ -308,6 +308,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ]
 [9
 
+] [10
+
+] [11
+
+] [12
+
 ] ("Equipo 3 2020-10-12.aux"
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
@@ -332,9 +338,9 @@ type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
 9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pr
 ogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "Equipo 3 2020-10-12.pdf" (9 pages, 167710 bytes).
+Output written on "Equipo 3 2020-10-12.pdf" (12 pages, 176262 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
+ 97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

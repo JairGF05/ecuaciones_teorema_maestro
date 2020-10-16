@@ -77,8 +77,8 @@ luego verifique sus respuestas empleando el resultado del ejemplo 4.\\
 
 %inicia ejercicio 1.1
 
-\begin{enumerate}[1]
-\item  $$t_n = \left \{ 
+\begin{enumerate}[1]	
+\item  $$T(n) = \left \{ 
 \begin{matrix} 
 1 & \mbox{si n = }1\\ 
 2T(n/2)+1 & \mbox{en}\mbox{ otro caso}\\
@@ -104,7 +104,7 @@ Que es la forma de una recurrencia no homog\'enea\\
 Su polinomio caracter\'istico es:\\
 $(x-2)(x-1)$\\
 \vspace{.5cm}
-As\'i todas las coluciones para $t_{i}$ son de la forma:\\
+As\'i todas las soluciones para $t_{i}$ son de la forma:\\
 $t_{i} = c_{1}(2^{i}) + c_{2}$\\
 \vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
@@ -137,7 +137,7 @@ $T(n) \in \Theta(n|n$ es potencia de 2)
 %termina ejercicio 1.1
 
 %inicio del ejercicio 1.2
-\item  $$t_n = \left \{ 
+\item  $$T(n) = \left \{ 
 \begin{matrix} 
 1 & \mbox{si n = }1\\ 
 4T(n/2)+n & \mbox{en}\mbox{ otro caso}\\
@@ -163,7 +163,7 @@ Que es la forma de una recurrencia no homog\'enea\\
 Su polinomio caracter\'istico es:\\
 $(x-4)(x-2)$\\
 \vspace{.5cm}
-As\'i todas las coluciones para $t_{i}$ son de la forma:\\
+As\'i todas las soluciones para $t_{i}$ son de la forma:\\
 $t_{i} = c_{1}(4^{i}) + c_{2}(2^{i})$\\
 \vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
@@ -198,7 +198,7 @@ $T(n) \in \Theta(n^{2}|n$ es potencia de 2)
 
 
 %inicio del ejercicio 1.3
-\item  $$t_n = \left \{ 
+\item  $$T(n) = \left \{ 
 \begin{matrix} 
 1 & \mbox{si n = }1\\ 
 2T(n/2)+ lgn & \mbox{en}\mbox{ otro caso}\\
@@ -224,7 +224,7 @@ $t_{i}- 2t_{i-1} = i $\\
 Su polinomio caracter\'istico es:\\
 $(x-2)(x-1)$\\
 \vspace{.5cm}
-As\'i todas las coluciones para $t_{i}$ son de la forma:\\
+As\'i todas las soluciones para $t_{i}$ son de la forma:\\
 $t_{i} = c_{1} 2^i + c_{2}  + c_3  i $\\
 \vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
@@ -255,7 +255,7 @@ $T(n) \in \Theta(n|n$ es potencia de 2)
 
 
 %inicio del ejercicio 1.4
-\item  $$t_n = \left \{ 
+\item  $$T(n) = \left \{ 
 \begin{matrix} 
 1 & \mbox{si n = }1\\ 
 5T(n/2)+ (n lgn)^2 & \mbox{en}\mbox{ otro caso}\\
@@ -280,7 +280,7 @@ $t_{i}- 5t_{i-1} = i^2 4^i $\\
 Su polinomio caracter\'istico es:\\
 $(x-5)(x-4)$\\
 \vspace{.5cm}
-As\'i todas las coluciones para $t_{i}$ son de la forma:\\
+As\'i todas las soluciones para $t_{i}$ son de la forma:\\
 $t_{i} = c_{1} 5^i + c_{2}  4^i $\\
 \vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
@@ -308,6 +308,152 @@ $T(n) \in \Theta(n^{\log_{2}(5)} |n$ es potencia de 2)
 \end{center}
 \clearpage
 %fin ejercicio 1.4
+
+%Inicio ejercicio 2.1
+\item  $$T(n) = \left \{ 
+\begin{matrix} 
+1 & \mbox{si n = }1\\ 
+2T(n/3)+ 4 & \mbox{en}\mbox{ otro caso}\\
+\end{matrix}
+\right. $$\\
+
+
+\begin{center}
+Reemplazamos $n$ por $3^{i}$: \\
+$t_{i}= T(3^{i})$\\
+$t_{i}= T(3^{i})=2T(3^{i-1})+4$\\
+\vspace{.5cm}
+Se reescribe como:\\
+$t_{i}- 2t_{i-1} = 4 $\\
+\vspace{.5cm}
+Su polinomio caracter\'istico es:\\
+$(x-2)(x-4)$\\
+\vspace{.5cm}
+As\'i todas las soluciones para $t_{i}$ son de la forma:\\
+$t_{i} = c_{1} 2^i + c_{2}  4^i $\\
+\vspace{.5cm}
+Ahora regresamos a la ecuaci\'on original\\
+usando el hecho de que $T(3^{i})= t_{i}$, as\'i $T(n)=t\log n $\\
+$T(n) = C_{1}2^{lgn}+C_{2}4^{lgn}$\\
+$T(n) = C_{1}n^{lg2}+C_{2}n^{lg4}$ (1)\\
+\vspace{.5cm}
+Como queremos obtener el orden exacto debemos probar que $c_{2}$ es estrictamente positivo.\\
+Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
+$4 = T(n)-2T(n/3)$\\
+\hspace{1.6cm}$4 = (c_{1}n^{lg2} + c_{2}n^{lg4})- 2(c_{1}(\frac{n}{3})^{lg2} + c_{2} (\frac{n}{2})^{lg4} )$\\
+$c_2=(\frac{n}{2})^{lg4} $\\
+
+Por lo tanto se puede concluir que :\\
+$T(n) \in O(n^{lg4} | n$ es potencia de 3)\\
+\vspace{.5cm}
+Comprobaci\'on con teorema Maestro:
+$l = 2$, $b = 3$,$k = 0$\\
+$l > b^{k}$\\
+Porque: $2 > 3^{0}$\\
+Por lo tanto:\\
+$T(n) \in O(n^{\log_{3}(2)})$\\
+$T(n) \in O(n^{\log_{3}(2)} |n$ es potencia de 3)
+
+\end{center}
+\clearpage
+%Fin ejercicio 2.1
+
+%Inicio ejercicio 2.2
+\item  $$T(n) = \left \{ 
+\begin{matrix} 
+1 & \mbox{si n = }1\\ 
+T(n/3)+ 2 & \mbox{en}\mbox{ otro caso}\\
+\end{matrix}
+\right. $$\\
+
+
+\begin{center}
+Reemplazamos $n$ por $3^{i}$: \\
+$t_{i}= T(3^{i})$\\
+$t_{i}= T(3^{i})=T(3^{i-1})+2$\\
+\vspace{.5cm}
+Se reescribe como:\\
+$t_{i}- t_{i-1} = 2 $\\
+\vspace{.5cm}
+Su polinomio caracter\'istico es:\\
+$(x-1)(x-2)$\\
+\vspace{.5cm}
+As\'i todas las soluciones para $t_{i}$ son de la forma:\\
+$t_{i} = c_{1} 1 + c_{2}  2^i $\\
+\vspace{.5cm}
+Ahora regresamos a la ecuaci\'on original\\
+usando el hecho de que $T(3^{i})= t_{i}$, as\'i $T(n)=t\log n $\\
+$T(n)=C_{1}1^{lgn} + C_{2}2^{lgn} = C_{1}+ C_{2}n^{lg2}$   (1)\\
+\vspace{.5cm}
+Como queremos obtener el orden exacto debemos probar que $c_{2}$ es estrictamente positivo.\\
+Con el sistema\\
+$C_{1}+C_{2}3^{lg3^{2}})=3, n=3$\\
+$C_1=0$\\
+$C_2=1$\\
+\hspace{1.6cm}$4 = (c_{1}n^{lg2} + c_{2}n^{lg4})- 2(c_{1}(\frac{n}{3})^{lg2} + c_{2} (\frac{n}{2})^{lg4} )$\\
+$c_2=(\frac{n}{2})^{lg4} $\\
+
+Por lo tanto se puede concluir que :\\
+$T(n) \in O(n^{lg2} | n$ es potencia de 3)\\
+\vspace{.5cm}
+Comprobaci\'on con teorema Maestro:
+$l = 1$, $b = 3$,$k = 0$\\
+$l = b^{k}$\\
+Porque: $1 = 3^{0}$\\
+Por lo tanto:\\
+$T(n) \in \Theta(n^{0}\log n) = \Theta(\log n)$\\
+
+\end{center}
+\clearpage
+%fin ejercicio 2.2
+
+%Inicio ejercicio 3
+\item  $$T(n) = \left \{ 
+\begin{matrix} 
+1 & \mbox{si n = }2\\ 
+2T(\sqrt{n})+ lgn & \mbox{en}\mbox{ otro caso}\\
+\end{matrix}
+\right. $$\\
+
+
+\begin{center}
+Reemplazamos $n$ por $2^{i}$: \\
+$t_{i}= T(2^{i})$\\
+$t_{i}= T(2^{i})=2T(2^{\frac{i}{2}})+i$\\
+$S(\frac{i}{2})= T(2^{\frac{1}{2}})$\\
+Siendo la forma que podemos resolver:\\
+Sustituimos $i$ por $2^{i}$\\
+$Si=2S(2^{i-1})+i$\\
+$Si-2Si-1=i$\\
+\vspace{.5cm}
+\vspace{.5cm}
+Su polinomio caracter\'istico es:\\
+$(x-2)(x-1)^2$\\
+$S(2^{i})=Si$\\
+\vspace{.5cm}
+Con soluciones de la forma:\\
+$S(n)=C_{1}2^{i} + C_{2} + C_{3}i$\\
+$T(n)=\log n \log \log n$\\
+\vspace{.5cm}
+Ahora regresamos a la ecuaci\'on original\\
+$T(n)=C_{1}2^{\log n \log \log n} + C_{2} + C_{3} \log n \log \log n $\\
+$T(n)=C_{1}n \log \log n + C_{2} + C_{3} \log n \log (\log n) $\\
+\vspace{.5cm}
+
+
+Por lo tanto se puede concluir que :\\
+$T(n) \in \Theta(\log n \log (\log n))$\\
+\vspace{.5cm}
+Comprobaci\'on con teorema Maestro:\\
+$T(n) = 2T(\sqrt{n})+\log n$\\
+$m = \log n$ producciones\\
+$T(2^m)=2T(2^{\frac{m}{2}})+m$\\
+Luego $S(m) = T(2^m)$ produce la recurrencia\\
+$S(m)=2S(\frac{m}{2})+m$\\
+Entonces $T(n) = T(2^m) = S(m) = O(m \log m) = O(\log n (\log \log n))$
+\end{center}
+\clearpage
+%fin ejercicio 3
 
 
 \item \textbf{Teorema Maestro}\\
