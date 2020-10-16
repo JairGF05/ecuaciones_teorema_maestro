@@ -309,6 +309,37 @@ $T(n) \in \Theta(n^{\log_{2}(5)} |n$ es potencia de 2)
 \clearpage
 %fin ejercicio 1.4
 
+
+\item \textbf{Teorema Maestro}\\
+El teorema maestro proporciona una manera de resolver recurrencias de la forma:\\
+$$T(n)=aT(\frac{n}{b})+f(n)$$
+Donde $a\geq1$ y $b>1$ son constantes y $f(n)$ es una funci\'on asint\'oticamente positiva.\\
+Est\'a recurrencia describe el tiempo de un algoritmo que:\\
+\begin{itemize}
+	\item Divide un problema de tama\~no $n$ en $a$ subproblemas, cada uno de tama\~no $\frac{n}{b}$, donde $a$ y $b$ son constantes positivas.\\
+	\item Los $a$ subproblemas se resuelven recursivamente, cada uno en un tiempo $T(\frac{n}{b})$.\\
+	\item El costo de dividir el problema y combinar los resultados de los subproblemas est\'a descrito por la funci\'on $f(n)$.\\
+\end{itemize}
+
+Entonces $T(n)$ puede estar acotada asint\'oticamente de la forma siguiente:\\
+3 casos:\\
+\begin{enumerate}[1.]
+	\item Si $f(n)= O(n^{\log_{b}{a-\epsilon}})$ para alguna constante $\epsilon>0$ entonces\\
+	$$T(n)=\Theta(n^{\log_{b}{a}})$$
+	\item Si $f(n)=\Theta(n^{\log_{b}{a}})$, entonces: \\
+	$$ T(n)= \Theta(n^{\log_{b}{a}}\log{n})  $$
+	\item Si $f(n) = \Omega(n^{\log_{b}{a+\epsilon}})$ para alguna constante $\epsilon>0$, y si $af(\frac{n}{b})\leq cf(n)$ para 	alguna constante $c<1$ y una $n$ suficientemente grande, entonces:
+	$$T(n)=\Theta(f(n))$$
+\end{enumerate}
+En los tres casos se compara la funci\'on $f(n)$ con la funci\'on $n^{\log_{b}{a}}$\\
+
+Intuitivamente, la soluci\'on a la recurrencia estar\'a determinada por la mayor de las funciones.\\
+\begin{itemize}
+\item En 1. La funci\'on $n^{\log_{b}{a}}$ crece m\'as r\'apido polinomialmente que $f(n)$ por un factor $n^{\epsilon}$. Adem\'as, $f(n)$ satisface la condici\'on de regularidad que $f(n)$ por un factor $n^{\epsilon}$. La soluci\'on esta dada entonces por $n^{\log_{b}{a}}$\\
+\item En 3. La funci\'on $f(n)$ crece polinomialmente m\'as r\'apido que $n^{\log_{b}{a}}$ por un factor $n^{\epsilon}$. Adem\'as $f(n)$ satisface la condici\'on de regularidad que dice $af(\frac{n}{b})\leq cf(n)$ para alguna constante $c>1$.\\
+\item Los tres casos no cubren todas las posibilidades, el m\'etodo no puede aplicarse si las funciones no crecen polinomialmente m\'as r\'apido o si la condici\'on de regularidad no se cumple.
+\end{itemize}
+
 \end{enumerate}
 
 
