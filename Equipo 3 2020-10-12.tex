@@ -100,7 +100,6 @@ $t_{i}= T(2^{i})= 2T(2^{i-1})+1$\\
 Se reescribe como:\\
 $t_{i}- 2t_{i-1} = 1$\\
 \vspace{.5cm}
-Que es la forma de una recurrencia no homog\'enea\\
 Su polinomio caracter\'istico es:\\
 $(x-2)(x-1)$\\
 \vspace{.5cm}
@@ -108,11 +107,8 @@ As\'i todas las soluciones para $t_{i}$ son de la forma:\\
 $t_{i} = c_{1}(2^{i}) + c_{2}$\\
 \vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
-usamos el hecho de que $T(2^{i})=t_{i}$, As\'i $T(n) = tlgn$ \\
 $T(n)= c_{1}2^{lgn}+ c2$ $=$ $c_{1}n + c_{2}$ $(1)$\\
 \vspace{.5cm}
-Lo cual es suficiente para concluir que :\\
-$T(n) \in O(n|n$ es potencia de 2)\\
 Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
 estrictamente positivo.\\
 \vspace{.5cm}
@@ -121,7 +117,7 @@ $1 = T(n)-2T(n/2)$\\
 \hspace{1.6cm}$= (c_{1}n+c2)- 2(c_{1}\frac{n}{2} + c_{2})$\\
 $c_{2}= -1$\\
 No obtuvimos el valor de $c_{1}$ pero estamos en condiciones de afirmar que 
-debe ser estrictamente positiva, de lo contrario la ecuaci\'on $(1)$ indicar\'ia falsamente que $T(n)$ es negativa.\\
+debe ser estrictamente positiva, de lo contrario la ecuaci\'on indicar\'ia falsamente que $T(n)$ es negativa.\\
 Entonces queda establecido que:\\
 $T(n) \in \Theta(n|n$ es potencia de 2)\\
 
@@ -158,7 +154,6 @@ $t_{i}= T(2^{i})= 4T(2^{i-1})+ 2^{i}$\\
 \vspace{.5cm}
 Se reescribe como:\\
 $t_{i}- 4t_{i-1} = 2^{i}$\\
-Que es la forma de una recurrencia no homog\'enea\\
 \vspace{.5cm}
 Su polinomio caracter\'istico es:\\
 $(x-4)(x-2)$\\
@@ -167,11 +162,7 @@ As\'i todas las soluciones para $t_{i}$ son de la forma:\\
 $t_{i} = c_{1}(4^{i}) + c_{2}(2^{i})$\\
 \vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
-usamos el hecho de que $T(2^{i})=t_{i}$, As\'i $T(n) = tlgn$ \\
 $T(n)= c_{1}4^{lgn}+ c_{2}2^{lgn}$ $=$ $c_{1}n^{2} + c_{2}n$ $(1)$\\
-\vspace{.5cm}
-Lo cual es suficiente para concluir que :\\
-$T(n) \in O(n^{2}|n$ es potencia de 2)\\
 \vspace{.5cm}
 Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
 estrictamente positivo.\\
@@ -180,7 +171,7 @@ $n = T(n)-4T(n/2)$\\
 \hspace{1.6cm}$= (c_{1}n^{lg4} + c_{2}n)- 4(c_{1}(\frac{n}{2})^{lg4} + c_{2}(\frac{n}{2}))$\\
 $c_{2}= -1$\\
 No obtuvimos el valor de $c_{1}$ pero estamos en condiciones de afirmar que 
-debe ser estrictamente positiva, de lo contrario la ecuaci\'on $(1)$ indicar\'ia falsamente
+debe ser estrictamente positiva, de lo contrario la ecuaci\'on  indicar\'ia falsamente
 que $T(n)$ es negativa.\\
 
 Entonces queda establecido que:\\
@@ -232,14 +223,14 @@ $T(n)= c_{1}n + c_{2} $\\
 \vspace{.5cm}
 Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
 estrictamente positivo.\\
-Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
+Sustituyendo la soluci\'on proporcionada por la ecuaci\'on en la recurencia original.\\
 $lgn = T(n)-2T(n/2)$\\
 \hspace{1.6cm}$= (c_{1}n + c_{2})- 2(c_{1}(\frac{n}{2}) + c_{2})$\\
 $c_{2}= - log n$\\
 No obtuvimos el valor de $c_{1}$ pero estamos en condiciones de afirmar que 
 debe ser estrictamente positiva
 Por lo tanto :\\
-$T(n) \in O(n | n$ es potencia de 2)\\
+$T(n) \in \Theta(n | n$ es potencia de 2)\\
 \vspace{.5cm}
 Comprobaci\'on con teorema Maestro:
 $l = 2$, $b = 2$,$k = 0$\\
@@ -288,7 +279,7 @@ $T(n)= c_{1}n^{lg5} + c_{2} n^{lg4} $\\
 \vspace{.5cm}
 Como queremos obtener el orden exacto debemos probar que $c_{1}$ es
 estrictamente positivo.\\
-Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
+Sustituyendo la soluci\'on proporcionada por la ecuaci\'on  en la recurencia original.\\
 $(nlgn)^2 = T(n)-5T(n/2)$\\
 \hspace{1.6cm}$= (c_{1}n^{lg5} + c_{2}n^{lg4})- 2(c_{1}(\frac{n}{2})^{lg5} + c_{2} (\frac{n}{2})^{lg4} )$\\
 $c_{2}n^{lg4} = - (n log n)^2 / 4$\\
@@ -333,26 +324,25 @@ As\'i todas las soluciones para $t_{i}$ son de la forma:\\
 $t_{i} = c_{1} 2^i + c_{2}  4^i $\\
 \vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
-usando el hecho de que $T(3^{i})= t_{i}$, as\'i $T(n)=t\log n $\\
 $T(n) = C_{1}2^{lgn}+C_{2}4^{lgn}$\\
 $T(n) = C_{1}n^{lg2}+C_{2}n^{lg4}$ (1)\\
 \vspace{.5cm}
-Como queremos obtener el orden exacto debemos probar que $c_{2}$ es estrictamente positivo.\\
-Sustituyendo la soluci\'on proporcionada por la ecuaci\'on (1) en la recurencia original.\\
+Como queremos obtener el orden exacto debemos probar que $c_{1}$ es estrictamente positivo.\\
+Sustituyendo la soluci\'on proporcionada por la ecuaci\'on en la recurencia original.\\
 $4 = T(n)-2T(n/3)$\\
 \hspace{1.6cm}$4 = (c_{1}n^{lg2} + c_{2}n^{lg4})- 2(c_{1}(\frac{n}{3})^{lg2} + c_{2} (\frac{n}{2})^{lg4} )$\\
-$c_2=(\frac{n}{2})^{lg4} $\\
+$c_2=-(\frac{8}{n^{lg4}}) $\\
 
 Por lo tanto se puede concluir que :\\
-$T(n) \in O(n^{lg4} | n$ es potencia de 3)\\
+$T(n) \in  \Theta(n^{lg2} | n$ es potencia de 3)\\
 \vspace{.5cm}
 Comprobaci\'on con teorema Maestro:
 $l = 2$, $b = 3$,$k = 0$\\
 $l > b^{k}$\\
 Porque: $2 > 3^{0}$\\
 Por lo tanto:\\
-$T(n) \in O(n^{\log_{3}(2)})$\\
-$T(n) \in O(n^{\log_{3}(2)} |n$ es potencia de 3)
+$T(n) \in  \Theta(n^{\log_{3}(2)})$\\
+$T(n) \in  \Theta(n^{\log_{3}(2)} |n$ es potencia de 3)
 
 \end{center}
 \clearpage
@@ -371,30 +361,20 @@ T(n/3)+ 2 & \mbox{en}\mbox{ otro caso}\\
 Reemplazamos $n$ por $3^{i}$: \\
 $t_{i}= T(3^{i})$\\
 $t_{i}= T(3^{i})=T(3^{i-1})+2$\\
-\vspace{.5cm}
-Se reescribe como:\\
-$t_{i}- t_{i-1} = 2 $\\
+Con manipulaci\'on algrebraica obtenemos:\\
+$t_{i}-2t_{i-1}+t_{i-2}=0$\\
 \vspace{.5cm}
 Su polinomio caracter\'istico es:\\
-$(x-1)(x-2)$\\
+$(x-1)^2$\\
 \vspace{.5cm}
 As\'i todas las soluciones para $t_{i}$ son de la forma:\\
-$t_{i} = c_{1} 1 + c_{2}  2^i $\\
+$t_{i} = c_{1} 1 + c_{2}  i $\\
 \vspace{.5cm}
 Ahora regresamos a la ecuaci\'on original\\
-usando el hecho de que $T(3^{i})= t_{i}$, as\'i $T(n)=t\log n $\\
-$T(n)=C_{1}1^{lgn} + C_{2}2^{lgn} = C_{1}+ C_{2}n^{lg2}$   (1)\\
+$T(n)=C_{1}1^{lgn} + C_{2}lgn = C_{1}+ C_{2}lgn$  \\
 \vspace{.5cm}
-Como queremos obtener el orden exacto debemos probar que $c_{2}$ es estrictamente positivo.\\
-Con el sistema\\
-$C_{1}+C_{2}3^{lg3^{2}})=3, n=3$\\
-$C_1=0$\\
-$C_2=1$\\
-\hspace{1.6cm}$4 = (c_{1}n^{lg2} + c_{2}n^{lg4})- 2(c_{1}(\frac{n}{3})^{lg2} + c_{2} (\frac{n}{2})^{lg4} )$\\
-$c_2=(\frac{n}{2})^{lg4} $\\
-
 Por lo tanto se puede concluir que :\\
-$T(n) \in O(n^{lg2} | n$ es potencia de 3)\\
+$T(n) \in O(lgn | n$ es potencia de 3)\\
 \vspace{.5cm}
 Comprobaci\'on con teorema Maestro:
 $l = 1$, $b = 3$,$k = 0$\\
@@ -442,15 +422,15 @@ $T(n)=C_{1}n \log \log n + C_{2} + C_{3} \log n \log (\log n) $\\
 
 
 Por lo tanto se puede concluir que :\\
-$T(n) \in \Theta(\log n \log (\log n))$\\
+$T(n) \in O(\log n \log (\log n))$\\
 \vspace{.5cm}
 Comprobaci\'on con teorema Maestro:\\
 $T(n) = 2T(\sqrt{n})+\log n$\\
-$m = \log n$ producciones\\
-$T(2^m)=2T(2^{\frac{m}{2}})+m$\\
-Luego $S(m) = T(2^m)$ produce la recurrencia\\
-$S(m)=2S(\frac{m}{2})+m$\\
-Entonces $T(n) = T(2^m) = S(m) = O(m \log m) = O(\log n (\log \log n))$
+$i = \log n$ producciones\\
+$T(2^i)=2T(2^{\frac{i}{2}})+i$\\
+Luego $S(i) = T(2^i)$ produce la recurrencia\\
+$S(i)=2S(\frac{i}{2})+i$\\
+Entonces $T(n) = T(2^i) = S(i) =  \Theta(i \log i) =  \Theta(\log n (\log \log n))$
 \end{center}
 \clearpage
 %fin ejercicio 3
@@ -501,8 +481,9 @@ Buap, Oto\~{n}o 2020.
 
 \bibitem {notas} Jim\'enez Salazer, H\'ector y Lavalle Mart\'inez, Jos\'e de Jes\'us; An\'alisis y Dise\~{n}o de Algoritmos. Traducci\'on de partes del libro Fundamentals of Algorithmics de Brassard and Bratley FCC - BUAP, 2020.
 
+\bibitem  {notas}Arturo D\'iaz P\'erez. (2005). Teorema Maestro. 16/10/2020, de CINVESTAV Sitio web: http://delta.cs.cinvestav.mx/~adiaz/anadis/TeoremaMaestro.pdf
 
-
+\bibitem  {notas} Alonso Jimen\'ez, J. A. (2019). An\'alisis de la complejidad de los algoritmos. Obtenido de Dpto. de Ciencias de la Computaci\'on e Inteligencia Artificial: http://www.cs.us.es/~jalonso/cursos/i1m/temas/tema-28.html
 
 
 \end{thebibliography}
