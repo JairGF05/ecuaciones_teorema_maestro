@@ -72,7 +72,7 @@ BUAP
 %\abstract{Analisis de algoritmos}
 
 \section{Ejercicios}
-Resuelva las siguientes recurrencias exactamente,perimero mediante cambio de variable,
+Resuelva las siguientes recurrencias exactamente,primero mediante cambio de variable,
 luego verifique sus respuestas empleando el resultado del ejemplo 4.\\
 
 %inicia ejercicio 1.1
@@ -361,7 +361,7 @@ T(n/3)+ 2 & \mbox{en}\mbox{ otro caso}\\
 Reemplazamos $n$ por $3^{i}$: \\
 $t_{i}= T(3^{i})$\\
 $t_{i}= T(3^{i})=T(3^{i-1})+2$\\
-Con manipulaci\'on algrebraica obtenemos:\\
+Con manipulaci\'on algebraica obtenemos:\\
 $t_{i}-2t_{i-1}+t_{i-2}=0$\\
 \vspace{.5cm}
 Su polinomio caracter\'istico es:\\
@@ -438,8 +438,39 @@ Entonces $T(n) = T(2^i) = S(i) =  \Theta(i \log i) =  \Theta(\log n (\log \log n
 
 \item \textbf{Teorema Maestro}\\
 El teorema maestro proporciona una manera de resolver recurrencias de la forma:\\
-$$T(n)=aT(\frac{n}{b})+f(n)$$
-Donde $a\geq1$ y $b>1$ son constantes y $f(n)$ es una funci\'on asint\'oticamente positiva.\\
+
+$$T(n) = \left \{ 
+\begin{matrix} 
+f(n) & \mbox{si 0}  \leq n \leq c\\ 
+aT(\frac{n}{b})+ bn^k & \mbox{si c } \leq n\\
+\end{matrix} 
+\right. $$\\
+
+$$T_2(n) = \left \{ 
+\begin{matrix} 
+f(n) & \mbox{si 0}  \leq n \leq c\\ 
+aT(n-c)+ bn^k & \mbox{si c } \leq n\\
+\end{matrix} 
+\right. $$\\
+
+$$T(n) \in \left \{ 
+\begin{matrix} 
+\Theta (n^k)& \mbox{si a}  < 1\\ 
+\Theta (n^{k+1})& \mbox{si a}  = 1\\ 
+\Theta (n^{a/c})& \mbox{si a} >  1\\ 
+\end{matrix} 
+\right. $$\\
+
+$$T_2(n) \in \left \{ 
+\begin{matrix} 
+\Theta (n^k)& \mbox{si a}  < c^k\\ 
+\Theta (n^{k} logn)& \mbox{si a}  = c^k\\ 
+\Theta (n^{log_c a})& \mbox{si a} >  c^k\\ 
+\end{matrix} 
+\right. $$\\
+
+
+Para el caso que usamos durante los ejercicios donde $a\geq1$ y $b>1$ son constantes y $f(n)$ es una funci\'on asint\'oticamente positiva.\\
 Est\'a recurrencia describe el tiempo de un algoritmo que:\\
 \begin{itemize}
 	\item Divide un problema de tama\~no $n$ en $a$ subproblemas, cada uno de tama\~no $\frac{n}{b}$, donde $a$ y $b$ son constantes positivas.\\
@@ -467,6 +498,12 @@ Intuitivamente, la soluci\'on a la recurrencia estar\'a determinada por la mayor
 \end{itemize}
 
 \end{enumerate}
+
+\textbf{Conclusiones}\\
+\center
+Concluimos que en los ejercicios realizados solamemte utilizamos la forma $T(n)=aT(\frac{n}{b})+f(n)$, de igual forma el teorema maestro sirvio para poder comprobar todas las ecuaciones realizadas, por los m\'etodos vistos anteriormente.
+\endcenter
+
 
 
 \clearpage

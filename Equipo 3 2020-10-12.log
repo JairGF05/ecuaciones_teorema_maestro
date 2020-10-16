@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.8.11)  16 OCT 2020 09:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.8.11)  16 OCT 2020 10:35
 entering extended mode
 **"./Equipo 3 2020-10-12.tex"
 ("Equipo 3 2020-10-12.tex"
@@ -241,7 +241,10 @@ LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 
 
-LaTeX Warning: Label `A' multiply defined.
+LaTeX Warning: Label `notas' multiply defined.
+
+
+LaTeX Warning: Label `notas' multiply defined.
 
 )
 \openout1 = `"Equipo 3 2020-10-12.aux"'.
@@ -319,7 +322,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [10
 
-] [11
+] [11] [12
 
 ] ("Equipo 3 2020-10-12.aux"
 LaTeX Info: Redefining \. on input line 8.
@@ -330,10 +333,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4657 strings out of 480790
- 66064 string characters out of 2897770
- 324817 words of memory out of 3000000
- 20619 multiletter control sequences out of 15000+200000
+ 4656 strings out of 480790
+ 66061 string characters out of 2897770
+ 326813 words of memory out of 3000000
+ 20618 multiletter control sequences out of 15000+200000
  540193 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,7n,36p,315b,361s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -353,9 +356,9 @@ b><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mr9.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb>
-Output written on "Equipo 3 2020-10-12.pdf" (11 pages, 174925 bytes).
+Output written on "Equipo 3 2020-10-12.pdf" (12 pages, 178565 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
+ 97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
